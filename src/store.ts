@@ -48,20 +48,8 @@ function calcHitDirection(prevX: number, prevY: number, ballR: number, nextX: nu
   const movingRight = prevX < nextX;
   const movingDown = prevY < nextY;
 
-  /* const yFunc = (x: number) => {
-    const px = nextX - prevX;
-    const py = nextY - prevY;
-    return py / px * x;
-  }; */
-
-  //console.log('prevX:', prevX, 'prevY:', prevY);
-  //console.log('nextX:', nextX, 'nextY:', nextY);
-  //console.log('blockX:', blockX, 'blockY:', blockY);
-  //console.log('yFunc:', yFunc(blockX));
-
   if (movingRight && movingDown) {
     if ((nextX + ballR) - blockX >= (nextY + ballR) - blockY) {
-    //if (yFunc(blockX) < blockY) {
       return 'above';
     } else {
       return 'left';
@@ -70,7 +58,6 @@ function calcHitDirection(prevX: number, prevY: number, ballR: number, nextX: nu
 
   if (movingRight && !movingDown) {
     if ((nextX + ballR) - blockX >= (blockY + blockHeight) - nextY) {
-    //if (yFunc(blockX) > blockY + blockHeight) {
       return 'below';
     } else {
       return 'left';
@@ -79,7 +66,6 @@ function calcHitDirection(prevX: number, prevY: number, ballR: number, nextX: nu
 
   if (!movingRight && movingDown) {
     if ((blockX + blockWidth) - nextX >= (nextY + ballR) - blockY) {
-    //if (yFunc(blockX + blockWidth) < blockY) {
       return 'above';
     } else {
       return 'right';
@@ -88,7 +74,6 @@ function calcHitDirection(prevX: number, prevY: number, ballR: number, nextX: nu
 
   if (!movingRight && !movingDown) {
     if ((blockX + blockWidth) - nextX >= (blockY + blockHeight) - nextY) {
-    //if (yFunc(blockX + blockWidth) > blockY + blockHeight) {
       return 'below';
     } else {
       return 'right';
@@ -97,7 +82,7 @@ function calcHitDirection(prevX: number, prevY: number, ballR: number, nextX: nu
 }
 
 function isDirectionEqual(ballState1: any, ballState2: any) {
-  return (ballState1.movingRight === ballState2.movingRight) 
+  return (ballState1.movingRight === ballState2.movingRight)
     && (ballState1.movingDown === ballState2.movingDown);
 }
 
@@ -123,7 +108,7 @@ function calcNextBallDirectionsByBlockHit(ballStates: any[], nextBallStates: any
       const isBallYInBlock =
       (blockInfo.minY <= ballState.minY && ballState.minY <= blockInfo.maxY)
       || (blockInfo.minY <= ballState.maxY && ballState.maxY <= blockInfo.maxY);
-    if (!block.isHit && isBallXInBlock && isBallYInBlock) {
+      if (!block.isHit && isBallXInBlock && isBallYInBlock) {
         hitBlocks.push(block.blockId);
         const prevBallState = _.find(ballStates, {name: ballState.name});
         const hitDirection = calcHitDirection(prevBallState.x, prevBallState.y, prevBallState.r,
@@ -215,7 +200,7 @@ export default new Vuex.Store({
 
       const newBallStateMap: any = {};
       for (const nextBallState of nextBallStates) {
-        let newBallState = {
+        const newBallState = {
           movingRight: nextBallState.movingRight,
           movingDown: nextBallState.movingDown,
         };
