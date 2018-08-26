@@ -169,6 +169,17 @@ export default new Vuex.Store({
         maxSpeed: 10,
         fill: '#c00',
       },
+      {
+        name: 'ball-3',
+        x: 300,
+        y: 300,
+        vx: 5,
+        vy: 5,
+        r: 5,
+        minSpeed: 3,
+        maxSpeed: 5,
+        fill: '#00c',
+      },
     ],
     blocks: [] as any[],
   },
@@ -178,6 +189,9 @@ export default new Vuex.Store({
     },
     getBallState: (state, getters) => (name: string) => {
       return _.find(state.balls, {name});
+    },
+    getBalls: (state, getters) => () => {
+      return state.balls;
     },
     getBlocks: (state, getters) => () => {
       return state.blocks;
