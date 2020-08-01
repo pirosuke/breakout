@@ -8,17 +8,24 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.120",
-    "lodash": "^4.17.11",
-    "vue": "^2.5.22",
-    "vue-class-component": "^6.3.2",
-    "vue-property-decorator": "^7.3.0",
-    "vuex": "^3.1.0"
+    "@types/lodash": "^4.14.158",
+    "lodash": "^4.17.19",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.2",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
-    "typescript": "^3.2.4",
-    "vue-template-compiler": "^2.5.22"
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-typescript": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
   }
 }

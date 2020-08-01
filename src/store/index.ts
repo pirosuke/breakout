@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 import * as _ from 'lodash';
-
-Vue.use(Vuex);
 
 function calcNextBallStates(ballStates: any[]) {
   return ballStates.map((ballState) => {
@@ -271,4 +271,6 @@ export default new Vuex.Store({
       context.commit('updateBallPositions');
     },
   },
-});
+  modules: {
+  }
+})
